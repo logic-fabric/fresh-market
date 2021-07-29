@@ -1,21 +1,13 @@
 import React from "react";
 
-export function SecondaryNav() {
-  const productsCategories = [
-    "légumes",
-    "fruis",
-    "produits frais",
-    "épicerie",
-    "boissons",
-  ];
-
+export function SecondaryNav({ categories }) {
   return (
     <nav>
       <ul className="text-xl">
-        {productsCategories.map((category) => {
+        {categories.map((category) => {
           return (
             <li
-              className="my-2 px-3 py-sm rounded-md text-white text-center bg-gradient-to-r from-secondary-700 to-secondary-500"
+              className="mb-2 p-3 py-sm rounded-md text-white text-center bg-gradient-to-r from-secondary-700 to-secondary-500"
               key={`cat-${category}`}
             >
               {category}
