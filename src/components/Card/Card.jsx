@@ -2,7 +2,7 @@ import React from "react";
 
 export function Card({ product, category }) {
   return (
-    <article className="p-3 rounded-sm bg-white">
+    <article className="relative p-3 rounded-sm bg-white">
       <img
         className="m-auto"
         src={`./img/${category}/${product.img}`}
@@ -11,9 +11,11 @@ export function Card({ product, category }) {
         height="160"
       />
 
-      <h2 className="font-serif text-3xl">{product.name}</h2>
+      <h2 className="mt-1 mb-sm font-serif text-primary-600 text-3xl">
+        {product.name}
+      </h2>
 
-      <p className="mt-sm mb-2 text-lg font-medium">
+      <p className="mb-3 text-lg font-medium">
         {product.price.toString().replace(".", ",")}€&nbsp;/&nbsp;{product.unit}
       </p>
 
