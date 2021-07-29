@@ -8,9 +8,9 @@ module.exports = {
       none: "0px",
       xs: "0.125rem",
       sm: "0.25rem",
-      "1": "0.5rem",
-      "2": "1rem",
-      "3": "2rem",
+      1: "0.5rem",
+      2: "1rem",
+      3: "2rem",
       full: "9999px",
     },
     colors: {
@@ -32,6 +32,7 @@ module.exports = {
     },
     spacing: {
       0: "0",
+      px: "0.0625rem",
       xs: "0.125rem",
       sm: "0.25rem",
       1: "0.5rem",
@@ -45,7 +46,9 @@ module.exports = {
     extend: {},
   },
   variants: {
-    extend: {},
+    extend: {
+      transform: ["hover", "focus"],
+    },
   },
   plugins: [],
 };

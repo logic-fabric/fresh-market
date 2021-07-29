@@ -20,7 +20,7 @@ export function Card({ product, category }) {
       </p>
 
       <button
-        className="w-full px-3 py-sm rounded-sm text-white text-lg font-medium bg-gradient-to-r from-tonic-700 to-tonic-600"
+        className="w-full px-3 py-sm rounded-sm text-white text-lg font-medium bg-gradient-to-r from-tonic-700 to-tonic-600 hover:shadow-lg hover:opacity-90 hover:transform hover:-translate-y-px"
         type="button"
       >
         ajouter au panier
