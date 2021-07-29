@@ -1,4 +1,5 @@
 import { SecondaryNav } from "./components/SecondaryNav/SecondaryNav";
+import { Gallery } from "./components/Gallery/Gallery";
 import { Header } from "./components/Header/Header";
 import "./App.css";
 
@@ -8,6 +9,8 @@ function App() {
   const productsCategories = Object.keys(PRODUCTS).map(
     (category) => PRODUCTS[category].frenchName
   );
+  const activeCategory = "fruits";
+  const productsToDisplay = PRODUCTS[activeCategory].items;
 
   return (
     <div>
@@ -17,7 +20,13 @@ function App() {
         <aside className="px-4 py-3">
           <SecondaryNav categories={productsCategories} />
         </aside>
-        <div className="col-span-3 h-6 my-3 rounded-md bg-neutral-100"></div>
+
+        <div className="col-span-3 h-6 my-3">
+          <Gallery
+            products={productsToDisplay}
+            activeCategory={activeCategory}
+          />
+        </div>
       </main>
     </div>
   );
