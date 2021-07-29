@@ -17,7 +17,7 @@ export function Header() {
               aria-label="search"
             />
             <button
-              className="bg-secondary-600 px-2 py-sm text-white"
+              className="bg-gradient-to-r from-secondary-800 to-secondary-600 pl-2 pr-3 py-sm text-white"
               type="submit"
             >
               <i className="fas fa-search inline-block mr-2"></i>

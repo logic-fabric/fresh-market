@@ -12,3 +12,8 @@ html {
 *::after {
   box-sizing: inherit;
 }
+
+.content-wrapper {
+  max-width: 90rem;
+  margin: auto;
+}
