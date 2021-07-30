@@ -32,7 +32,7 @@ export function Header() {
             className="fas fa-shopping-cart relative w-4 h-4 border-sm border-colorprimary-600 rounded-full text-primary-600 text-2xl"
             type="button"
           >
-            <span className="cart-counter font-sans  bg-gradient-to-r from-danger-600 to-danger-400">
+            <span className="cart-counter font-sans  bg-gradient-to-r from-danger-500 to-danger-400">
               {cartCounter}
             </span>
           </button>

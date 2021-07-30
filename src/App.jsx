@@ -14,6 +14,7 @@ function App() {
     return {
       en: category,
       fr: PRODUCTS[category].frenchName,
+      icon: PRODUCTS[category].fontAwesomeIcon,
     };
   });
   const productsToDisplay = PRODUCTS[activeCategory].items;

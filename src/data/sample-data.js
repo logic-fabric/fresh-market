@@ -1,6 +1,7 @@
 export const PRODUCTS = {
   fruits: {
     frenchName: "fruits",
+    fontAwesomeIcon: "fas fa-apple-alt",
     items: [
       {
         name: "citron",
@@ -74,6 +75,7 @@ export const PRODUCTS = {
   },
   vegetables: {
     frenchName: "légumes",
+    fontAwesomeIcon: "fas fa-carrot",
     items: [
       {
         name: "oignons jaunes",
@@ -133,6 +135,7 @@ export const PRODUCTS = {
   },
   freshProduces: {
     frenchName: "produits frais",
+    fontAwesomeIcon: "fas fa-egg",
     items: [
       {
         name: "brique de lait",
@@ -174,6 +177,7 @@ export const PRODUCTS = {
   },
   groceries: {
     frenchName: "épicerie",
+    fontAwesomeIcon: "fas fa-store",
     items: [
       {
         name: "thon nature",
@@ -227,6 +231,7 @@ export const PRODUCTS = {
   },
   drinks: {
     frenchName: "boissons",
+    fontAwesomeIcon: "fas fa-wine-bottle",
     items: [
       {
         name: "vin de bordeaux",
