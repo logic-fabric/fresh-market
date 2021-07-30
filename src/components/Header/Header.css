@@ -2,3 +2,19 @@
   max-width: 90rem;
   margin: auto;
 }
+
+.cart-counter {
+  position: absolute;
+  top: -0.25rem;
+  right: -0.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+
+  color: white;
+  font-size: 0.75rem;
+}

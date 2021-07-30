@@ -13,6 +13,13 @@ module.exports = {
       3: "2rem",
       full: "9999px",
     },
+    borderWidth: {
+      DEFAULT: '1px',
+      0: '0',
+      xs: '0.125rem',
+      sm: '0.25rem',
+      1: '0.5rem',
+    },
     colors: {
       transparent: "transparent",
       current: "currentColor",
@@ -23,6 +30,8 @@ module.exports = {
       primary: colors.lime,
       secondary: colors.teal,
       tonic: colors.amber,
+
+      danger: colors.red,
 
       neutral: colors.warmGray,
     },
