@@ -27,6 +27,7 @@ function App() {
         <aside className="px-4 py-3">
           <SecondaryNav
             categories={productsCategories}
+            activeCategory={activeCategory}
             setActiveCategory={setActiveCategory}
           />
         </aside>
