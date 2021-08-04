@@ -2,7 +2,7 @@ import React from "react";
 
 import "./Header.css";
 
-export function Header({ filterProducts }) {
+export function Header({ filterProducts, setIsFilteringProducts }) {
   const cartCounter = 0;
 
   return (
@@ -17,7 +17,10 @@ export function Header({ filterProducts }) {
               type="search"
               placeholder="chercher un article"
               aria-label="search"
-              onChange={(e) => filterProducts(e.target.value)}
+              onChange={(e) => {
+                setIsFilteringProducts(e.target.value.length > 0);
+                filterProducts(e.target.value);
+              }}
             />
 
             <button

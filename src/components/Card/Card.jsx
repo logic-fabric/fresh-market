@@ -7,7 +7,7 @@ export function Card({ product, category }) {
     <article className="card relative p-3 rounded-sm shadow-md bg-white">
       <img
         className="m-auto"
-        src={`./img/${category}/${product.img}`}
+        src={`./img/${product.cat}/${product.img}`}
         alt={product.name}
         with="160"
         height="160"

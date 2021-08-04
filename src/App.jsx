@@ -25,18 +25,24 @@ const PRODUCTS_LIST = productsCollections.flat();
 
 function App() {
   const [activeCategory, setActiveCategory] = useState("fruits");
+  const [isFilteringProducts, setIsFilteringProducts] = useState(false);
+  const [filteredProducts, setFilteredProducts] = useState([]);
 
   const productsToDisplay = PRODUCTS[activeCategory].items;
 
   const filterProducts = (searchInputValue) => {
-    return PRODUCTS_LIST.filter((product) =>
+    const filtered = PRODUCTS_LIST.filter((product) =>
       product.name.toLowerCase().includes(searchInputValue.toLowerCase())
     );
+    setFilteredProducts(filtered);
   };
 
   return (
     <div>
-      <Header filterProducts={filterProducts} />
+      <Header
+        filterProducts={filterProducts}
+        setIsFilteringProducts={setIsFilteringProducts}
+      />
 
       <main className="content-wrapper grid grid-cols-4">
         <aside className="px-4 py-3">
@@ -44,12 +50,15 @@ function App() {
             categories={PRODUCTS_CATEGORIES}
             activeCategory={activeCategory}
             setActiveCategory={setActiveCategory}
+            isFilteringProducts={isFilteringProducts}
           />
         </aside>
 
         <div className="col-span-3 h-6 my-3">
           <Gallery
-            products={productsToDisplay}
+            products={
+              isFilteringProducts ? filteredProducts : productsToDisplay
+            }
             activeCategory={activeCategory}
           />
         </div>

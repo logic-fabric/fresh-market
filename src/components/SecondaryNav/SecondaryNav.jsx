@@ -6,6 +6,7 @@ export function SecondaryNav({
   categories,
   activeCategory,
   setActiveCategory,
+  isFilteringProducts,
 }) {
   return (
     <nav>
@@ -15,6 +16,7 @@ export function SecondaryNav({
             <li key={`cat-${index}`}>
               <button
                 className={`relative flex justify-between items-center w-full mb-2 px-2 py-1 rounded-sm font-medium text-white text-center bg-gradient-to-r from-secondary-700 to-secondary-500 transition-all  duration-300 hover:shadow-lg hover:opacity-90 hover:transform hover:-translate-y-px${
+                  !isFilteringProducts &&
                   category.en === activeCategory &&
                   " active-category from-secondary-900 to-secondary-700 text-neutral-100"
                 }`}
