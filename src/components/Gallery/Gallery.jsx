@@ -10,7 +10,7 @@ export function Gallery({ products, activeCategory }) {
           <Card
             key={`card-${index}`}
             product={product}
-            category={activeCategory}
+            cardId={`card-${index}`}
           />
         );
       })}
