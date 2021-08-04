@@ -7,29 +7,29 @@ import "./App.css";
 
 import { PRODUCTS } from "./data/sample-data";
 
+const PRODUCTS_CATEGORIES = Object.keys(PRODUCTS).map((category) => {
+  return {
+    en: category,
+    fr: PRODUCTS[category].frenchName,
+    icon: PRODUCTS[category].fontAwesomeIcon,
+  };
+});
+
+const productsCollections = [];
+
+for (let category of Object.keys(PRODUCTS)) {
+  productsCollections.push(PRODUCTS[category].items);
+}
+
+const PRODUCTS_LIST = productsCollections.flat();
+
 function App() {
   const [activeCategory, setActiveCategory] = useState("fruits");
-
-  const categories = Object.keys(PRODUCTS).map((category) => {
-    return {
-      en: category,
-      fr: PRODUCTS[category].frenchName,
-      icon: PRODUCTS[category].fontAwesomeIcon,
-    };
-  });
 
   const productsToDisplay = PRODUCTS[activeCategory].items;
 
   const filterProducts = (searchInputValue) => {
-    const productsCollections = [];
-
-    for (let category of Object.keys(PRODUCTS)) {
-      productsCollections.push(PRODUCTS[category].items);
-    }
-
-    const products = productsCollections.flat();
-
-    return products.filter((product) =>
+    return PRODUCTS_LIST.filter((product) =>
       product.name.toLowerCase().includes(searchInputValue.toLowerCase())
     );
   };
@@ -41,7 +41,7 @@ function App() {
       <main className="content-wrapper grid grid-cols-4">
         <aside className="px-4 py-3">
           <SecondaryNav
-            categories={categories}
+            categories={PRODUCTS_CATEGORIES}
             activeCategory={activeCategory}
             setActiveCategory={setActiveCategory}
           />
