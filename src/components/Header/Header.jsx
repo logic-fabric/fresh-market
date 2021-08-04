@@ -2,7 +2,7 @@ import React from "react";
 
 import "./Header.css";
 
-export function Header() {
+export function Header({ filterProducts }) {
   const cartCounter = 0;
 
   return (
@@ -13,10 +13,11 @@ export function Header() {
         <nav className="flex text-lg items-center">
           <form className="mr-4 rounded-full overflow-hidden">
             <input
-              className="w-6 px-2 py-sm"
+              className="w-6 px-2 py-sm outline-none"
               type="search"
               placeholder="chercher un article"
               aria-label="search"
+              onChange={(e) => filterProducts(e.target.value)}
             />
 
             <button

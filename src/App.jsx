@@ -10,23 +10,38 @@ import { PRODUCTS } from "./data/sample-data";
 function App() {
   const [activeCategory, setActiveCategory] = useState("fruits");
 
-  const productsCategories = Object.keys(PRODUCTS).map((category) => {
+  const categories = Object.keys(PRODUCTS).map((category) => {
     return {
       en: category,
       fr: PRODUCTS[category].frenchName,
       icon: PRODUCTS[category].fontAwesomeIcon,
     };
   });
+
   const productsToDisplay = PRODUCTS[activeCategory].items;
+
+  const filterProducts = (searchInputValue) => {
+    const productsCollections = [];
+
+    for (let category of Object.keys(PRODUCTS)) {
+      productsCollections.push(PRODUCTS[category].items);
+    }
+
+    const products = productsCollections.flat();
+
+    return products.filter((product) =>
+      product.name.toLowerCase().includes(searchInputValue.toLowerCase())
+    );
+  };
 
   return (
     <div>
-      <Header />
+      <Header filterProducts={filterProducts} />
 
       <main className="content-wrapper grid grid-cols-4">
         <aside className="px-4 py-3">
           <SecondaryNav
-            categories={productsCategories}
+            categories={categories}
             activeCategory={activeCategory}
             setActiveCategory={setActiveCategory}
           />
