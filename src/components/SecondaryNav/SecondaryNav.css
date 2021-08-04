@@ -1,0 +1,11 @@
+.active-category::after {
+  position: absolute;
+  left: 100%;
+  display: block;
+
+  border: 0 solid transparent;
+  border-color: transparent transparent transparent #0f766e;
+  border-width: 1.2rem 0.75rem;
+
+  content: " ";
+}
