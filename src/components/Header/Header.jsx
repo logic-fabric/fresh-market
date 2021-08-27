@@ -2,9 +2,11 @@ import React from "react";
 
 import "./Header.css";
 
-export function Header({ filterProducts, setIsFilteringProducts }) {
-  const cartCounter = 0;
-
+export function Header({
+  filterProducts,
+  setIsFilteringProducts,
+  cartCounter,
+}) {
   return (
     <header className="bg-gradient-to-r from-primary-600 to-primary-300 ">
       <div className="content-wrapper flex justify-between items-center px-4 py-3">

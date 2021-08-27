@@ -27,6 +27,7 @@ function App() {
   const [activeCategory, setActiveCategory] = useState("fruits");
   const [isFilteringProducts, setIsFilteringProducts] = useState(false);
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const [cartCounter, setCartCounter] = useState(0);
 
   const productsToDisplay = PRODUCTS[activeCategory].items;
 
@@ -42,6 +43,7 @@ function App() {
       <Header
         filterProducts={filterProducts}
         setIsFilteringProducts={setIsFilteringProducts}
+        cartCounter={cartCounter}
       />
 
       <main className="content-wrapper grid grid-cols-4">
@@ -60,6 +62,8 @@ function App() {
               isFilteringProducts ? filteredProducts : productsToDisplay
             }
             activeCategory={activeCategory}
+            cartCounter={cartCounter}
+            setCartCounter={setCartCounter}
           />
         </div>
       </main>

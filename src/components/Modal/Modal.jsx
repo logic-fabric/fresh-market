@@ -1,12 +1,31 @@
 import { useState } from "react";
 import "./Modal.css";
 
-export function Modal({ product, modalIsDisplayed, setModalIsDisplayed }) {
+export function Modal({
+  product,
+  modalIsDisplayed,
+  setModalIsDisplayed,
+  cartCounter,
+  setCartCounter,
+}) {
   function calculateTotalPrice() {
     return (quantity * product.price).toFixed(2);
   }
 
+  function addToCart() {
+    if (!articleInCart && quantity > 0) {
+      setCartCounter(cartCounter + 1);
+      setArticleInCart(true);
+    } else if (articleInCart && quantity === 0) {
+      setCartCounter(cartCounter - 1);
+      setArticleInCart(false);
+    }
+
+    setModalIsDisplayed(!modalIsDisplayed);
+  }
+
   const [quantity, setQuantity] = useState(0);
+  const [articleInCart, setArticleInCart] = useState(false);
 
   return (
     <div
@@ -54,7 +73,7 @@ export function Modal({ product, modalIsDisplayed, setModalIsDisplayed }) {
             </div>
 
             <p className="w-6 text-right">
-              <span>total&nbsp;: </span>
+              <span>sous-total&nbsp;: </span>
               <strong className="inline-block w-4">
                 {calculateTotalPrice().toString().replace(".", ",")}&nbsp;€
               </strong>
@@ -73,6 +92,7 @@ export function Modal({ product, modalIsDisplayed, setModalIsDisplayed }) {
             <button
               className="px-3 py-sm rounded-3 text-white font-semibold bg-gradient-to-r from-tonic-700 to-tonic-600 transition-all duration-300 hover:shadow-lg hover:opacity-90 hover:transform hover:-translate-y-px"
               type="button"
+              onClick={addToCart}
             >
               ajouter au panier
             </button>
