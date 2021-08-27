@@ -1,6 +1,9 @@
+import { useState } from "react";
 import "./Modal.css";
 
 export function Modal({ product, modalIsDisplayed, setModalIsDisplayed }) {
+  const [quantity, setQuantity] = useState(0);
+
   return (
     <div
       className="modal__bg fixed top-0 left-0 z-40 w-full h-full"
@@ -34,13 +37,15 @@ export function Modal({ product, modalIsDisplayed, setModalIsDisplayed }) {
               <button
                 className="fas fa-minus-square mx-2 text-secondary-700"
                 type="button"
+                onClick={() => setQuantity(Math.max(0, quantity - 1))}
               ></button>
 
-              <span>0</span>
+              <span class="inline-block w-3 text-center">{quantity}</span>
 
               <button
                 className="fas fa-plus-square mx-2 text-secondary-700"
                 type="button"
+                onClick={() => setQuantity(quantity + 1)}
               ></button>
             </div>
 
