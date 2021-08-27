@@ -1,11 +1,11 @@
 import { useState } from "react";
 
-import { SecondaryNav } from "./components/SecondaryNav/SecondaryNav";
-import { Gallery } from "./components/Gallery/Gallery";
-import { Header } from "./components/Header/Header";
-import "./App.css";
+import { SecondaryNav } from "../../components/SecondaryNav/SecondaryNav";
+import { Gallery } from "../../components/Gallery/Gallery";
+import { Header } from "../../components/Header/Header";
+import "./Home.css";
 
-import { PRODUCTS } from "./data/sample-data";
+import { PRODUCTS } from "../../data/sample-data";
 
 const PRODUCTS_CATEGORIES = Object.keys(PRODUCTS).map((category) => {
   return {
@@ -23,7 +23,7 @@ for (let category of Object.keys(PRODUCTS)) {
 
 const PRODUCTS_LIST = productsCollections.flat();
 
-function App() {
+export function Home() {
   const [activeCategory, setActiveCategory] = useState("fruits");
   const [isFilteringProducts, setIsFilteringProducts] = useState(false);
   const [filteredProducts, setFilteredProducts] = useState([]);
@@ -70,5 +70,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
