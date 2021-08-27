@@ -1,55 +1,26 @@
-import { useState } from "react";
-
 import { SecondaryNav } from "../../components/SecondaryNav/SecondaryNav";
 import { Gallery } from "../../components/Gallery/Gallery";
-import { Header } from "../../components/Header/Header";
+
 import "./Home.css";
 
-import { PRODUCTS } from "../../data/sample-data";
-
-const PRODUCTS_CATEGORIES = Object.keys(PRODUCTS).map((category) => {
-  return {
-    en: category,
-    fr: PRODUCTS[category].frenchName,
-    icon: PRODUCTS[category].fontAwesomeIcon,
-  };
-});
-
-const productsCollections = [];
-
-for (let category of Object.keys(PRODUCTS)) {
-  productsCollections.push(PRODUCTS[category].items);
-}
-
-const PRODUCTS_LIST = productsCollections.flat();
-
-export function Home() {
-  const [activeCategory, setActiveCategory] = useState("fruits");
-  const [isFilteringProducts, setIsFilteringProducts] = useState(false);
-  const [filteredProducts, setFilteredProducts] = useState([]);
-  const [cartCounter, setCartCounter] = useState(0);
-
-  const productsToDisplay = PRODUCTS[activeCategory].items;
-
-  const filterProducts = (searchInputValue) => {
-    const filtered = PRODUCTS_LIST.filter((product) =>
-      product.name.toLowerCase().includes(searchInputValue.toLowerCase())
-    );
-    setFilteredProducts(filtered);
-  };
+export function Home({
+  products,
+  categories,
+  activeCategory,
+  setActiveCategory,
+  isFilteringProducts,
+  filteredProducts,
+  cartCounter,
+  setCartCounter,
+}) {
+  const productsToDisplay = products[activeCategory].items;
 
   return (
     <div>
-      <Header
-        filterProducts={filterProducts}
-        setIsFilteringProducts={setIsFilteringProducts}
-        cartCounter={cartCounter}
-      />
-
       <main className="content-wrapper grid grid-cols-4">
         <aside className="px-4 py-3">
           <SecondaryNav
-            categories={PRODUCTS_CATEGORIES}
+            categories={categories}
             activeCategory={activeCategory}
             setActiveCategory={setActiveCategory}
             isFilteringProducts={isFilteringProducts}
