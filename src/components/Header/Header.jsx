@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import "./Header.css";
 
@@ -10,7 +11,9 @@ export function Header({
   return (
     <header className="bg-gradient-to-r from-primary-600 to-primary-300 ">
       <div className="content-wrapper flex justify-between items-center px-4 py-3">
-        <div className="font-serif text-white text-4xl">Fresh Market</div>
+        <Link to="/" className="font-serif text-white text-4xl">
+          Fresh Market
+        </Link>
 
         <nav className="flex text-lg items-center">
           <form className="mr-4 rounded-full overflow-hidden">
@@ -34,14 +37,16 @@ export function Header({
             </button>
           </form>
 
-          <button
-            className="fas fa-shopping-cart relative w-4 h-4 border-sm border-colorprimary-600 rounded-full text-primary-600 text-2xl"
+          <Link
+            to="mon-panier"
+            className="relative w-4 h-4 border-sm border-colorprimary-600 rounded-full text-primary-600 text-2xl"
             type="button"
           >
+            <span className="cart-icon fas fa-shopping-cart"></span>
             <span className="cart-counter font-sans  bg-gradient-to-r from-danger-500 to-danger-400">
               {cartCounter}
             </span>
-          </button>
+          </Link>
         </nav>
       </div>
     </header>

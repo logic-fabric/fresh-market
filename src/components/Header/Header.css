@@ -3,6 +3,12 @@
   margin: auto;
 }
 
+.cart-icon {
+  position: absolute;
+  top: 1rem;
+  left: 0.75rem;
+}
+
 .cart-counter {
   position: absolute;
   top: -0.25rem;

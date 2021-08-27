@@ -16,28 +16,24 @@ export function Home({
   const productsToDisplay = products[activeCategory].items;
 
   return (
-    <div>
-      <main className="content-wrapper grid grid-cols-4">
-        <aside className="px-4 py-3">
-          <SecondaryNav
-            categories={categories}
-            activeCategory={activeCategory}
-            setActiveCategory={setActiveCategory}
-            isFilteringProducts={isFilteringProducts}
-          />
-        </aside>
+    <main className="content-wrapper grid grid-cols-4">
+      <aside className="px-4 py-3">
+        <SecondaryNav
+          categories={categories}
+          activeCategory={activeCategory}
+          setActiveCategory={setActiveCategory}
+          isFilteringProducts={isFilteringProducts}
+        />
+      </aside>
 
-        <div className="col-span-3 my-3">
-          <Gallery
-            products={
-              isFilteringProducts ? filteredProducts : productsToDisplay
-            }
-            activeCategory={activeCategory}
-            cartCounter={cartCounter}
-            setCartCounter={setCartCounter}
-          />
-        </div>
-      </main>
-    </div>
+      <div className="col-span-3 my-3">
+        <Gallery
+          products={isFilteringProducts ? filteredProducts : productsToDisplay}
+          activeCategory={activeCategory}
+          cartCounter={cartCounter}
+          setCartCounter={setCartCounter}
+        />
+      </div>
+    </main>
   );
 }

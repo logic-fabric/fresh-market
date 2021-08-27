@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
+import { Cart } from "./pages/Cart/Cart";
 import { Home } from "./pages/Home/Home";
 import { Header } from "./components/Header/Header";
 
@@ -59,6 +60,9 @@ function App() {
             cartCounter={cartCounter}
             setCartCounter={setCartCounter}
           />
+        </Route>
+        <Route path="/mon-panier">
+          <Cart />
         </Route>
       </Switch>
     </Router>
