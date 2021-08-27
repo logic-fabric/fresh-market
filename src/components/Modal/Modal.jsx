@@ -2,6 +2,10 @@ import { useState } from "react";
 import "./Modal.css";
 
 export function Modal({ product, modalIsDisplayed, setModalIsDisplayed }) {
+  function calculateTotalPrice() {
+    return (quantity * product.price).toFixed(2);
+  }
+
   const [quantity, setQuantity] = useState(0);
 
   return (
@@ -28,19 +32,19 @@ export function Modal({ product, modalIsDisplayed, setModalIsDisplayed }) {
           </header>
 
           <div className="modal__body flex my-4 text-2xl text-neutral-600 font-medium">
-            <p className="">
-              {product.price.toString().replace(".", ",")}€&nbsp;/&nbsp;
+            <p>
+              {product.price.toString().replace(".", ",")}&nbsp;€&nbsp; /{" "}
               {product.unit}
             </p>
 
-            <div className="mx-4 text-3xl">
+            <div className="ml-4 text-3xl">
               <button
                 className="fas fa-minus-square mx-2 text-secondary-700"
                 type="button"
                 onClick={() => setQuantity(Math.max(0, quantity - 1))}
               ></button>
 
-              <span class="inline-block w-3 text-center">{quantity}</span>
+              <span className="inline-block w-3 text-center">{quantity}</span>
 
               <button
                 className="fas fa-plus-square mx-2 text-secondary-700"
@@ -49,13 +53,19 @@ export function Modal({ product, modalIsDisplayed, setModalIsDisplayed }) {
               ></button>
             </div>
 
-            <p>total&nbsp;: {product.price.toString().replace(".", ",")}€</p>
+            <p className="w-6 text-right">
+              <span>total&nbsp;: </span>
+              <strong className="inline-block w-4">
+                {calculateTotalPrice().toString().replace(".", ",")}&nbsp;€
+              </strong>
+            </p>
           </div>
 
           <div className="modal__footer flex justify-end pt-2 text-xl text-center">
             <button
-              className="px-3 py-1 text-neutral-500 font-semibold"
+              className="p-1 mr-2 text-neutral-500 font-semibold"
               type="button"
+              onClick={() => setModalIsDisplayed(!modalIsDisplayed)}
             >
               fermer
             </button>
