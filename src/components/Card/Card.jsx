@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Modal } from "../Modal/Modal";
 import "./Card.css";
 
 export function Card({ product, cardId }) {
+  const [modalIsDisplayed, setModalIsDisplayed] = useState(false);
+
   return (
     <div>
       <article className="card relative p-3 rounded-sm shadow-md bg-white">
@@ -27,11 +29,21 @@ export function Card({ product, cardId }) {
         <button
           className="absolute bottom-3 right-3 px-3 py-sm rounded-3 text-white text-lg font-medium bg-gradient-to-r from-tonic-700 to-tonic-600 transition-all duration-300 hover:shadow-lg hover:opacity-90 hover:transform hover:-translate-y-px"
           type="button"
+          onClick={(event) => {
+            setModalIsDisplayed(!modalIsDisplayed);
+          }}
         >
           ajouter au panier
         </button>
       </article>
-      {cardId === "card-0" ? <Modal product={product} /> : ""}
+
+      <div className={modalIsDisplayed ? "" : "hidden"}>
+        <Modal
+          product={product}
+          modalIsDisplayed={modalIsDisplayed}
+          setModalIsDisplayed={setModalIsDisplayed}
+        />
+      </div>
     </div>
   );
 }

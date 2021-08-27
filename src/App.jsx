@@ -54,7 +54,7 @@ function App() {
           />
         </aside>
 
-        <div className="col-span-3 h-6 my-3">
+        <div className="col-span-3 my-3">
           <Gallery
             products={
               isFilteringProducts ? filteredProducts : productsToDisplay
