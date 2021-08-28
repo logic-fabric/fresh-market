@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Modal } from "../Modal/Modal";
 import "./Card.css";
 
-export function Card({ product, cartCounter, setCartCounter }) {
+export function Card({ product, basketCounter, setBasketCounter }) {
   const [modalIsDisplayed, setModalIsDisplayed] = useState(false);
 
   return (
@@ -42,8 +42,8 @@ export function Card({ product, cartCounter, setCartCounter }) {
           product={product}
           modalIsDisplayed={modalIsDisplayed}
           setModalIsDisplayed={setModalIsDisplayed}
-          cartCounter={cartCounter}
-          setCartCounter={setCartCounter}
+          basketCounter={basketCounter}
+          setBasketCounter={setBasketCounter}
         />
       </div>
     </div>

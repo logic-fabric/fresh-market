@@ -6,7 +6,7 @@ import "./Header.css";
 export function Header({
   filterProducts,
   setIsFilteringProducts,
-  cartCounter,
+  basketCounter,
 }) {
   return (
     <header className="bg-gradient-to-r from-primary-600 to-primary-300 ">
@@ -42,9 +42,9 @@ export function Header({
             className="relative w-4 h-4 border-sm border-colorprimary-600 rounded-full text-primary-600 text-2xl"
             type="button"
           >
-            <span className="cart-icon fas fa-shopping-basket"></span>
-            <span className="cart-counter font-sans  bg-gradient-to-r from-danger-500 to-danger-400">
-              {cartCounter}
+            <span className="basket-icon fas fa-shopping-basket"></span>
+            <span className="basket-counter font-sans bg-gradient-to-r from-danger-500 to-danger-400">
+              {basketCounter}
             </span>
           </Link>
         </nav>

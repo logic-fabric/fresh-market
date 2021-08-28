@@ -5,27 +5,27 @@ export function Modal({
   product,
   modalIsDisplayed,
   setModalIsDisplayed,
-  cartCounter,
-  setCartCounter,
+  basketCounter,
+  setBasketCounter,
 }) {
   function calculateTotalPrice() {
     return (quantity * product.price).toFixed(2);
   }
 
-  function addToCart() {
-    if (!articleInCart && quantity > 0) {
-      setCartCounter(cartCounter + 1);
-      setArticleInCart(true);
-    } else if (articleInCart && quantity === 0) {
-      setCartCounter(cartCounter - 1);
-      setArticleInCart(false);
+  function addToBasket() {
+    if (!articleInBasket && quantity > 0) {
+      setBasketCounter(basketCounter + 1);
+      setArticleInBasket(true);
+    } else if (articleInBasket && quantity === 0) {
+      setBasketCounter(basketCounter - 1);
+      setArticleInBasket(false);
     }
 
     setModalIsDisplayed(!modalIsDisplayed);
   }
 
   const [quantity, setQuantity] = useState(0);
-  const [articleInCart, setArticleInCart] = useState(false);
+  const [articleInBasket, setArticleInBasket] = useState(false);
 
   return (
     <div
@@ -92,7 +92,7 @@ export function Modal({
             <button
               className="px-3 py-sm rounded-3 text-white font-semibold bg-gradient-to-r from-tonic-700 to-tonic-600 transition-all duration-300 hover:shadow-lg hover:opacity-90 hover:transform hover:-translate-y-px"
               type="button"
-              onClick={addToCart}
+              onClick={addToBasket}
             >
               ajouter au panier
             </button>

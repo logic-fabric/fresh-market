@@ -10,8 +10,8 @@ export function Home({
   setActiveCategory,
   isFilteringProducts,
   filteredProducts,
-  cartCounter,
-  setCartCounter,
+  basketCounter,
+  setBasketCounter,
 }) {
   const productsToDisplay = products[activeCategory].items;
 
@@ -30,8 +30,8 @@ export function Home({
         <Gallery
           products={isFilteringProducts ? filteredProducts : productsToDisplay}
           activeCategory={activeCategory}
-          cartCounter={cartCounter}
-          setCartCounter={setCartCounter}
+          basketCounter={basketCounter}
+          setBasketCounter={setBasketCounter}
         />
       </div>
     </main>

@@ -1,4 +1,4 @@
-export function CartSummary() {
+export function BasketSummary() {
   return (
     <div>
       <ul>

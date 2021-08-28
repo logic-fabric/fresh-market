@@ -3,13 +3,13 @@
   margin: auto;
 }
 
-.cart-icon {
+.basket-icon {
   position: absolute;
   top: 1rem;
   left: 0.9rem;
 }
 
-.cart-counter {
+.basket-counter {
   position: absolute;
   top: -0.25rem;
   right: -0.25rem;

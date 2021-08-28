@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import { Cart } from "./pages/Cart/Cart";
+import { Basket } from "./pages/Basket/Basket";
 import { Home } from "./pages/Home/Home";
 import { Header } from "./components/Header/Header";
 
@@ -31,7 +31,7 @@ function App() {
   const [activeCategory, setActiveCategory] = useState("fruits");
   const [isFilteringProducts, setIsFilteringProducts] = useState(false);
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const [cartCounter, setCartCounter] = useState(0);
+  const [basketCounter, setBasketCounter] = useState(0);
 
   const filterProducts = (searchInputValue) => {
     const filtered = PRODUCTS_LIST.filter((product) =>
@@ -45,7 +45,7 @@ function App() {
       <Header
         filterProducts={filterProducts}
         setIsFilteringProducts={setIsFilteringProducts}
-        cartCounter={cartCounter}
+        basketCounter={basketCounter}
       />
 
       <Switch>
@@ -57,12 +57,12 @@ function App() {
             setActiveCategory={setActiveCategory}
             isFilteringProducts={isFilteringProducts}
             filteredProducts={filteredProducts}
-            cartCounter={cartCounter}
-            setCartCounter={setCartCounter}
+            basketCounter={basketCounter}
+            setBasketCounter={setBasketCounter}
           />
         </Route>
         <Route path="/mon-panier">
-          <Cart />
+          <Basket />
         </Route>
       </Switch>
     </Router>
