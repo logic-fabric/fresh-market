@@ -34,7 +34,7 @@ export function Modal({
     >
       <div className="modal__dialog absolute rounded-sm bg-white">
         <div
-          className="modal__content w-full px-4 py-3"
+          className="modal__content z-50 w-full px-4 py-3"
           onClick={(event) => event.stopPropagation()}
         >
           <header className="modal__header flex justify-between">
@@ -43,14 +43,22 @@ export function Modal({
             </h3>
 
             <button
-              className="far fa-times-circle text-neutral-500 text-3xl transform translate-x-3 -translate-y-1"
+              className="far fa-times-circle text-neutral-500 text-3xl transform translate-x-2"
               type="button"
               aria-label="close"
               onClick={() => setModalIsDisplayed(!modalIsDisplayed)}
             ></button>
           </header>
 
-          <div className="modal__body flex my-4 text-2xl text-neutral-600 font-medium">
+          <img
+            className="my-2"
+            width="160"
+            height="160"
+            src={`./img/${product.cat}/${product.img}`}
+            alt={product.name}
+          />
+
+          <div className="modal__body flex mb-4 text-2xl text-neutral-600 font-medium">
             <p>
               {product.price.toString().replace(".", ",")}&nbsp;€&nbsp; /{" "}
               {product.unit}
@@ -80,7 +88,7 @@ export function Modal({
             </p>
           </div>
 
-          <div className="modal__footer flex justify-end pt-2 text-xl text-center">
+          <div className="modal__footer flex justify-end text-xl text-center">
             <button
               className="p-1 mr-2 text-neutral-500 font-semibold"
               type="button"

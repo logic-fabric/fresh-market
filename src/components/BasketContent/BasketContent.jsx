@@ -31,7 +31,7 @@ function BasketContentRow() {
           src={`./img/fruits/citrons.png`}
           alt="Citrons verts"
         />
-        <h3 className="pl-4 font-serif text-primary-600 text-2xl">Citrons</h3>
+        <h3 className="pl-3 font-serif text-primary-600 text-2xl">Citrons</h3>
       </td>
 
       <td className="flex items-center w-1/6 text-neutral-600">
