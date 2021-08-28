@@ -16,8 +16,8 @@ export function Home({
   const productsToDisplay = products[activeCategory].items;
 
   return (
-    <main className="content-wrapper grid grid-cols-4">
-      <aside className="px-4 py-3">
+    <main className="content-wrapper flex">
+      <aside className="w-1/4 px-4 py-3">
         <SecondaryNav
           categories={categories}
           activeCategory={activeCategory}
@@ -26,7 +26,7 @@ export function Home({
         />
       </aside>
 
-      <div className="col-span-3 my-3">
+      <div className="w-3/4 my-3">
         <Gallery
           products={isFilteringProducts ? filteredProducts : productsToDisplay}
           activeCategory={activeCategory}
