@@ -1,6 +1,6 @@
 export function BasketSummary() {
   return (
-    <div>
+    <div className="basket-summary-container">
       <ul>
         <li className="flex justify-between">
           <span className="font-bold">articles</span>
@@ -12,8 +12,8 @@ export function BasketSummary() {
           <span>0,00&nbsp;€</span>
         </li>
 
-        <li className="my-2 text-center text-sm text-tonic-700">
-          j'ai un code promo&nbsp;!
+        <li className="my-2 text-center text-sm text-tonic-700 cursor-pointer">
+          <span className="underline">j'ai un code promo</span>&nbsp;!
         </li>
 
         <li className="flex justify-between my-3 text-xl">
