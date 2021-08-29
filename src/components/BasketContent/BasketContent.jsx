@@ -1,22 +1,26 @@
 export function BasketContent() {
   return (
     <table className="w-full">
-      <tr classname="block w-full">
-        <th className="inline-block w-1/3 text-xl font-bold">produit</th>
-        <th className="inline-block w-1/6 text-xl font-bold">prix</th>
-        <th className="inline-block w-1/6 text-xl font-bold">quantité</th>
-        <th className="inline-block w-1/6 text-xl font-bold">sous-total</th>
-        <th className="inline-block w-1/6 text-neutral-600">
-          retirer
-          <br />
-          du panier
-        </th>
-      </tr>
+      <thead>
+        <tr className="block w-full">
+          <th className="inline-block w-1/3 text-xl font-bold">produit</th>
+          <th className="inline-block w-1/6 text-xl font-bold">prix</th>
+          <th className="inline-block w-1/6 text-xl font-bold">quantité</th>
+          <th className="inline-block w-1/6 text-xl font-bold">sous-total</th>
+          <th className="inline-block w-1/6 text-neutral-600">
+            retirer
+            <br />
+            du panier
+          </th>
+        </tr>
+      </thead>
 
-      <BasketContentRow />
-      <BasketContentRow />
-      <BasketContentRow />
-      <BasketContentRow />
+      <tbody>
+        <BasketContentRow />
+        <BasketContentRow />
+        <BasketContentRow />
+        <BasketContentRow />
+      </tbody>
     </table>
   );
 }
