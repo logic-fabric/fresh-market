@@ -2,7 +2,7 @@
  * ACTIONS TYPES
  * ============= */
 
-const ACTIONS = {
+export const ACTIONS = {
   ADD_ARTICLE_TO_BASKET: "ADD_ARTICLE_TO_BASKET",
   UPDATE_ARTICLE_QUANTITY: "UPDATE_ARTICLE_QUANTITY",
   REMOVE_ARTICLE_FROM_BASKET: "REMOVE_ARTICLE_FROM_BASKET",
@@ -14,18 +14,18 @@ const ACTIONS = {
 
 const uuid = Math.random().toString(16).slice(2);
 
-function addArticleToBasket(article, quantity) {
+export function addArticleToBasket(article, quantity) {
   return {
     type: ACTIONS.ADD_ARTICLE_TO_BASKET,
     payload: {
-      id: uuid(),
+      uuid: uuid(),
       article: article,
       quantity: quantity,
     },
   };
 }
 
-function updateArticleQuantity(article, updatedQuantity) {
+export function updateArticleQuantity(article, updatedQuantity) {
   return {
     type: ACTIONS.UPDATE_ARTICLE_QUANTITY,
     payload: {
@@ -35,7 +35,7 @@ function updateArticleQuantity(article, updatedQuantity) {
   };
 }
 
-function removeArticleFromBasket(article) {
+export function removeArticleFromBasket(article) {
   return {
     type: ACTIONS.REMOVE_ARTICLE_FROM_BASKET,
     payload: article,
