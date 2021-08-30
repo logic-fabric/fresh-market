@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 
 import { store } from "./redux/store";
-import { App } from "./App/App";
+import { AppContainer } from "./App/AppContainer";
 
 import "./index.css";
 
@@ -26,7 +26,7 @@ unsubscribe();
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <AppContainer />
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")
