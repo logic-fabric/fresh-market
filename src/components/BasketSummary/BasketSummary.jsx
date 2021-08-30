@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export function BasketSummary({ articles }) {
   const calculateSubTotal = () => {
     return articles.reduce(
@@ -36,14 +38,16 @@ export function BasketSummary({ articles }) {
         </li>
       </ul>
 
-      <button
-        className={total > 0 ?
-        "w-full m-auto px-3 py-1 my-2 rounded-3 text-white text-lg font-medium bg-gradient-to-r from-tonic-700 to-tonic-600 transition-all duration-300 hover:shadow-lg hover:opacity-90 hover:transform hover:-translate-y-px" :
-        "w-full m-auto px-3 py-1 my-2 rounded-3 text-white text-lg font-medium bg-neutral-400"}
-        type="button"
+      <Link
+        className={
+          total > 0
+            ? "block w-full m-auto px-3 py-1 my-2 rounded-3 text-white text-center text-lg font-medium bg-gradient-to-r from-tonic-700 to-tonic-600 transition-all duration-300 hover:shadow-lg hover:opacity-90 hover:transform hover:-translate-y-px"
+            : "block w-full m-auto px-3 py-1 my-2 rounded-3 text-white text-center text-lg font-medium bg-neutral-400"
+        }
+        to={total > 0 ? "/passer-commande" : "mon-panier"}
       >
         passer commande
-      </button>
+      </Link>
     </div>
   );
 }

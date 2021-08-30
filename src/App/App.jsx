@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import { Basket } from "../pages/Basket/Basket";
+import { Checkout } from "../pages/Checkout/Checkout";
 import { Home } from "../pages/Home/Home";
 import { Header } from "../components/Header/Header";
 
@@ -61,8 +62,13 @@ export function App({ articles, saveBasket }) {
             filteredProducts={filteredProducts}
           />
         </Route>
+
         <Route path="/mon-panier">
           <Basket />
+        </Route>
+
+        <Route path="/passer-commande">
+          <Checkout />
         </Route>
       </Switch>
     </Router>
