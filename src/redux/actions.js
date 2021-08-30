@@ -12,7 +12,7 @@ export const ACTIONS = {
  * ACTIONS CREATORS
  * ================ */
 
-const uuid = Math.random().toString(16).slice(2);
+const uuid = () => Math.random().toString(16).slice(2);
 
 export function addArticleToBasket(article, quantity) {
   return {
