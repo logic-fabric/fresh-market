@@ -1,40 +1,41 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import { addArticleToBasket } from "../../redux/actions";
+import {
+  addArticleToBasket,
+  removeArticleFromBasket,
+  updateArticleQuantity,
+} from "../../redux/actions";
 
 import "./Modal.css";
 
 export function Modal({ product, modalIsDisplayed, setModalIsDisplayed }) {
   const calculateSubTotalPrice = () => (quantity * product.price).toFixed(2);
 
-  /*
-  function addToBasket() {
-    if (!articleInBasket && quantity > 0) {
-      setBasketCounter(basketCounter + 1);
-      setArticleInBasket(true);
-
-      onAddArticleToBasket(product, quantity);
-    } else if (articleInBasket && quantity === 0) {
-      setBasketCounter(basketCounter - 1);
-      setArticleInBasket(false);
-
-      onAddArticleToBasket(product, quantity);
-    }
-
-    setModalIsDisplayed(!modalIsDisplayed);
-  }
-  */
-
-  const dispatch = useDispatch();
-
   const addToBasket = (article, quantity) => {
-    dispatch(addArticleToBasket(article, quantity));
+    if (articleInBasket) {
+      if (quantity === 0) {
+        dispatch(removeArticleFromBasket(articleInBasket.id));
+      } else if (articleInBasket.quantity !== quantity) {
+        dispatch(updateArticleQuantity(articleInBasket.id, quantity));
+      }
+    } else if (quantity > 0) {
+      dispatch(addArticleToBasket(article, quantity));
+    }
 
     setModalIsDisplayed(!modalIsDisplayed);
   };
 
   const [quantity, setQuantity] = useState(0);
+
+  const dispatch = useDispatch();
+  const articleInBasket = useSelector((state) =>
+    state.articles.find((article) => article.product.name === product.name)
+  );
+  
+  useEffect(() => {
+    if (articleInBasket) setQuantity(articleInBasket.quantity);
+  }, [articleInBasket]);
 
   return (
     <div

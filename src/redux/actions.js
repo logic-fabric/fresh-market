@@ -38,6 +38,6 @@ export function updateArticleQuantity(id, updatedQuantity) {
 export function removeArticleFromBasket(id) {
   return {
     type: ACTIONS.REMOVE_ARTICLE_FROM_BASKET,
-    payload: id,
+    payload: { id: id },
   };
 }
