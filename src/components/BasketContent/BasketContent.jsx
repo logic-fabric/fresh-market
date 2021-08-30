@@ -1,4 +1,13 @@
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+
 export function BasketContent() {
+  const articles = useSelector((state) => state.articles);
+
+  useEffect(() => {
+    console.log("articles =", articles);
+  }, [articles]);
+
   return (
     <table className="w-full">
       <thead>
@@ -16,30 +25,37 @@ export function BasketContent() {
       </thead>
 
       <tbody>
-        <BasketContentRow />
-        <BasketContentRow />
-        <BasketContentRow />
-        <BasketContentRow />
+        {articles.map((article) => (
+          <BasketContentRow key={`row-${article.uuid}`} article={article} />
+        ))}
       </tbody>
     </table>
   );
 }
 
-function BasketContentRow() {
+function BasketContentRow({ article }) {
+  const calculateSubTotalPrice = () =>
+    (article.quantity * article.product.price).toFixed(2);
+
   return (
     <tr className="flex w-full mt-2 rounded-sm bg-white">
       <td className="flex items-center w-1/3 px-3">
         <img
+          src={`./img/${article.product.cat}/${article.product.img}`}
+          alt={article.product.name}
           width="80"
           height="80"
-          src={`./img/fruits/citrons.png`}
-          alt="Citrons verts"
         />
-        <h3 className="pl-3 font-serif text-primary-600 text-2xl">Citrons</h3>
+        <h3 className="pl-3 font-serif text-primary-600 text-2xl">
+          {article.product.name}
+        </h3>
       </td>
 
       <td className="flex items-center w-1/6 text-neutral-600">
-        <div className="w-full text-center">0,99 € / pièce</div>
+        <div className="w-full text-center">
+          {article.product.price.toString().replace(".", ",")}€&nbsp;/&nbsp;
+          {article.product.unit}
+        </div>
       </td>
 
       <td className="flex items-center w-1/6 text-xl">
@@ -49,7 +65,9 @@ function BasketContentRow() {
             type="button"
           ></button>
 
-          <span className="inline-block w-3 text-center">2</span>
+          <span className="inline-block w-3 text-center">
+            {article.quantity}
+          </span>
 
           <button
             className="fas fa-plus-square mx-2 text-secondary-700"
@@ -59,7 +77,9 @@ function BasketContentRow() {
       </td>
 
       <td className="flex items-center w-1/6 text-xl font-bold">
-        <div className="w-full text-center">1,98 €</div>
+        <div className="w-full text-center">
+          {calculateSubTotalPrice().toString().replace(".", ",")}&nbsp;€
+        </div>
       </td>
 
       <td className="flex justify-center items-center w-1/6">

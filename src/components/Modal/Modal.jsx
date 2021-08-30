@@ -5,14 +5,9 @@ import { addArticleToBasket } from "../../redux/actions";
 
 import "./Modal.css";
 
-export function Modal({
-  product,
-  modalIsDisplayed,
-  setModalIsDisplayed,
-}) {
-  function calculateTotalPrice() {
-    return (quantity * product.price).toFixed(2);
-  }
+export function Modal({ product, modalIsDisplayed, setModalIsDisplayed }) {
+  const calculateSubTotalPrice = () => (quantity * product.price).toFixed(2);
+
   /*
   function addToBasket() {
     if (!articleInBasket && quantity > 0) {
@@ -97,7 +92,7 @@ export function Modal({
             <p className="w-6 text-right">
               <span>sous-total&nbsp;: </span>
               <strong className="inline-block w-4">
-                {calculateTotalPrice().toString().replace(".", ",")}&nbsp;€
+                {calculateSubTotalPrice().toString().replace(".", ",")}&nbsp;€
               </strong>
             </p>
           </div>

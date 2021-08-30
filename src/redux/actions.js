@@ -14,30 +14,30 @@ export const ACTIONS = {
 
 const uuid = () => Math.random().toString(16).slice(2);
 
-export function addArticleToBasket(article, quantity) {
+export function addArticleToBasket(product, quantity) {
   return {
     type: ACTIONS.ADD_ARTICLE_TO_BASKET,
     payload: {
       uuid: uuid(),
-      article: article,
+      product: product,
       quantity: quantity,
     },
   };
 }
 
-export function updateArticleQuantity(article, updatedQuantity) {
+export function updateArticleQuantity(product, updatedQuantity) {
   return {
     type: ACTIONS.UPDATE_ARTICLE_QUANTITY,
     payload: {
-      article: article,
+      product: product,
       updatedQuantity: updatedQuantity,
     },
   };
 }
 
-export function removeArticleFromBasket(article) {
+export function removeArticleFromBasket(product) {
   return {
     type: ACTIONS.REMOVE_ARTICLE_FROM_BASKET,
-    payload: article,
+    payload: product,
   };
 }
