@@ -23,7 +23,7 @@ export function BasketContent({ articles }) {
 
       <tbody>
         {articles.map((article) => (
-          <BasketContentRow key={`row-${article.uuid}`} article={article} />
+          <BasketContentRow key={`row-${article.id}`} article={article} />
         ))}
       </tbody>
     </table>

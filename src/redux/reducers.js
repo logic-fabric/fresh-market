@@ -23,7 +23,7 @@ export function basketReducer(state = initialState, action) {
 
     case ACTIONS.UPDATE_ARTICLE_QUANTITY:
       const updatedArticles = state.articles.map((article) =>
-        article.uuid === action.payload.article.uuid
+        article.id === action.payload.article.id
           ? updateArticle(article, action.payload.updatedQuantity)
           : article
       );
@@ -33,7 +33,7 @@ export function basketReducer(state = initialState, action) {
 
     case ACTIONS.REMOVE_ARTICLE_FROM_BASKET:
       const remainingArticles = state.articles.filter(
-        (article) => article.uuid !== action.payload.uuid
+        (article) => article.id !== action.payload.id
       );
       newState = Object.assign({}, state, { articles: remainingArticles });
 

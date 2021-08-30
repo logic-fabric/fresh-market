@@ -10,7 +10,7 @@ export function BasketSummary({ articles }) {
   const calculateTotal = () => calculateSubTotal() + deliveryCost;
 
   const subTotal = calculateSubTotal();
-  const deliveryCost = subTotal > 0 ? 10 : 0;
+  const deliveryCost = subTotal > 0 ? 9 : 0;
   const total = calculateTotal();
 
   return (

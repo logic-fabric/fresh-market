@@ -18,26 +18,26 @@ export function addArticleToBasket(product, quantity) {
   return {
     type: ACTIONS.ADD_ARTICLE_TO_BASKET,
     payload: {
-      uuid: uuid(),
+      id: uuid(),
       product: product,
       quantity: quantity,
     },
   };
 }
 
-export function updateArticleQuantity(product, updatedQuantity) {
+export function updateArticleQuantity(id, updatedQuantity) {
   return {
     type: ACTIONS.UPDATE_ARTICLE_QUANTITY,
     payload: {
-      product: product,
+      id: id,
       updatedQuantity: updatedQuantity,
     },
   };
 }
 
-export function removeArticleFromBasket(product) {
+export function removeArticleFromBasket(id) {
   return {
     type: ACTIONS.REMOVE_ARTICLE_FROM_BASKET,
-    payload: product,
+    payload: id,
   };
 }
