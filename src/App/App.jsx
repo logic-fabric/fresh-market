@@ -26,8 +26,6 @@ const PRODUCTS_LIST = productsCollections.flat();
 
 // App component:
 export function App(props) {
-  const { onAddArticleToBasket, onUpdateArticleQuantity } = props;
-
   const [activeCategory, setActiveCategory] = useState("fruits");
   const [isFilteringProducts, setIsFilteringProducts] = useState(false);
   const [filteredProducts, setFilteredProducts] = useState([]);
@@ -57,10 +55,6 @@ export function App(props) {
             setActiveCategory={setActiveCategory}
             isFilteringProducts={isFilteringProducts}
             filteredProducts={filteredProducts}
-            basketCounter={basketCounter}
-            setBasketCounter={setBasketCounter}
-            onAddArticleToBasket={onAddArticleToBasket}
-            onUpdateArticleQuantity={onUpdateArticleQuantity}
           />
         </Route>
         <Route path="/mon-panier">

@@ -10,10 +10,6 @@ export function Home({
   setActiveCategory,
   isFilteringProducts,
   filteredProducts,
-  basketCounter,
-  setBasketCounter,
-  onAddArticleToBasket,
-  onUpdateArticleQuantity,
 }) {
   const productsToDisplay = products[activeCategory].items;
 
@@ -32,10 +28,6 @@ export function Home({
         <Gallery
           products={isFilteringProducts ? filteredProducts : productsToDisplay}
           activeCategory={activeCategory}
-          basketCounter={basketCounter}
-          setBasketCounter={setBasketCounter}
-          onAddArticleToBasket={onAddArticleToBasket}
-          onUpdateArticleQuantity={onUpdateArticleQuantity}
         />
       </div>
     </main>

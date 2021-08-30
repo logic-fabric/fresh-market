@@ -1,19 +1,19 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+
+import { addArticleToBasket } from "../../redux/actions";
+
 import "./Modal.css";
 
 export function Modal({
   product,
   modalIsDisplayed,
   setModalIsDisplayed,
-  basketCounter,
-  setBasketCounter,
-  onAddArticleToBasket,
-  onUpdateArticleQuantity,
 }) {
   function calculateTotalPrice() {
     return (quantity * product.price).toFixed(2);
   }
-
+  /*
   function addToBasket() {
     if (!articleInBasket && quantity > 0) {
       setBasketCounter(basketCounter + 1);
@@ -29,9 +29,17 @@ export function Modal({
 
     setModalIsDisplayed(!modalIsDisplayed);
   }
+  */
+
+  const dispatch = useDispatch();
+
+  const addToBasket = (article, quantity) => {
+    dispatch(addArticleToBasket(article, quantity));
+
+    setModalIsDisplayed(!modalIsDisplayed);
+  };
 
   const [quantity, setQuantity] = useState(0);
-  const [articleInBasket, setArticleInBasket] = useState(false);
 
   return (
     <div
@@ -106,7 +114,7 @@ export function Modal({
             <button
               className="px-3 py-sm rounded-3 text-white font-semibold bg-gradient-to-r from-tonic-700 to-tonic-600 transition-all duration-300 hover:shadow-lg hover:opacity-90 hover:transform hover:-translate-y-px"
               type="button"
-              onClick={addToBasket}
+              onClick={() => addToBasket(product, quantity)}
             >
               ajouter au panier
             </button>
