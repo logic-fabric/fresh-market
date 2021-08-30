@@ -42,9 +42,13 @@ export function Header({ filterProducts, setIsFilteringProducts }) {
             type="button"
           >
             <span className="basket-icon fas fa-shopping-basket"></span>
-            <span className="basket-counter font-sans bg-gradient-to-r from-danger-500 to-danger-400">
-              {basketCounter}
-            </span>
+            {basketCounter > 0 ? (
+              <span className="basket-counter font-sans bg-gradient-to-r from-danger-500 to-danger-400">
+                {basketCounter}
+              </span>
+            ) : (
+              ""
+            )}
           </Link>
         </nav>
       </div>
