@@ -37,7 +37,9 @@ export function BasketSummary({ articles }) {
       </ul>
 
       <button
-        className="w-full m-auto px-3 py-1 my-2 rounded-3 text-white text-lg font-medium bg-gradient-to-r from-tonic-700 to-tonic-600 transition-all duration-300 hover:shadow-lg hover:opacity-90 hover:transform hover:-translate-y-px"
+        className={total > 0 ?
+        "w-full m-auto px-3 py-1 my-2 rounded-3 text-white text-lg font-medium bg-gradient-to-r from-tonic-700 to-tonic-600 transition-all duration-300 hover:shadow-lg hover:opacity-90 hover:transform hover:-translate-y-px" :
+        "w-full m-auto px-3 py-1 my-2 rounded-3 text-white text-lg font-medium bg-neutral-400"}
         type="button"
       >
         passer commande
