@@ -1,8 +1,4 @@
-import { useSelector } from "react-redux";
-
-export function BasketContent() {
-  const articles = useSelector((state) => state.articles);
-
+export function BasketContent({ articles }) {
   if (articles.length === 0) {
     return (
       <p className="m-4 text-center text-2xl">Aucun article pour le moment</p>

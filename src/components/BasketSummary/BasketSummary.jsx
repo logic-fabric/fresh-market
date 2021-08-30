@@ -1,15 +1,29 @@
-export function BasketSummary() {
+export function BasketSummary({ articles }) {
+  const calculateSubTotal = () => {
+    return articles.reduce(
+      (subTotal, article) =>
+        subTotal + article.quantity * article.product.price,
+      0
+    );
+  };
+
+  const calculateTotal = () => calculateSubTotal() + deliveryCost;
+
+  const subTotal = calculateSubTotal();
+  const deliveryCost = subTotal > 0 ? 10 : 0;
+  const total = calculateTotal();
+
   return (
     <div className="basket-summary-container">
       <ul>
         <li className="flex justify-between">
           <span className="font-bold">articles</span>
-          <span>0,00&nbsp;€</span>
+          <span>{subTotal.toFixed(2).replace(".", ",")}&nbsp;€</span>
         </li>
 
         <li className="flex justify-between">
           <span className="font-bold">livraison</span>
-          <span>0,00&nbsp;€</span>
+          <span>{deliveryCost.toFixed(2).replace(".", ",")}&nbsp;€</span>
         </li>
 
         <li className="my-2 text-center text-sm text-tonic-700 cursor-pointer">
@@ -18,7 +32,7 @@ export function BasketSummary() {
 
         <li className="flex justify-between my-3 text-xl">
           <span className="font-bold">total</span>
-          <span>0,00&nbsp;€</span>
+          <span>{total.toFixed(2).replace(".", ",")}&nbsp;€</span>
         </li>
       </ul>
 
