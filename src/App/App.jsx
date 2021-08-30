@@ -7,6 +7,7 @@ import { Header } from "../components/Header/Header";
 
 import { PRODUCTS } from "../data/sample-data";
 
+// Data preparation:
 const PRODUCTS_CATEGORIES = Object.keys(PRODUCTS).map((category) => {
   return {
     en: category,
@@ -23,7 +24,10 @@ for (let category of Object.keys(PRODUCTS)) {
 
 const PRODUCTS_LIST = productsCollections.flat();
 
-export function App() {
+// App component:
+export function App(props) {
+  const { onAddArticleToBasket, onUpdateArticleQuantity } = props;
+
   const [activeCategory, setActiveCategory] = useState("fruits");
   const [isFilteringProducts, setIsFilteringProducts] = useState(false);
   const [filteredProducts, setFilteredProducts] = useState([]);
@@ -55,6 +59,8 @@ export function App() {
             filteredProducts={filteredProducts}
             basketCounter={basketCounter}
             setBasketCounter={setBasketCounter}
+            onAddArticleToBasket={onAddArticleToBasket}
+            onUpdateArticleQuantity={onUpdateArticleQuantity}
           />
         </Route>
         <Route path="/mon-panier">

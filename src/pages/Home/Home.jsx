@@ -12,6 +12,8 @@ export function Home({
   filteredProducts,
   basketCounter,
   setBasketCounter,
+  onAddArticleToBasket,
+  onUpdateArticleQuantity,
 }) {
   const productsToDisplay = products[activeCategory].items;
 
@@ -32,6 +34,8 @@ export function Home({
           activeCategory={activeCategory}
           basketCounter={basketCounter}
           setBasketCounter={setBasketCounter}
+          onAddArticleToBasket={onAddArticleToBasket}
+          onUpdateArticleQuantity={onUpdateArticleQuantity}
         />
       </div>
     </main>

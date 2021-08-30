@@ -2,7 +2,13 @@ import React from "react";
 
 import { Card } from "../Card/Card";
 
-export function Gallery({ products, basketCounter, setBasketCounter }) {
+export function Gallery({
+  products,
+  basketCounter,
+  setBasketCounter,
+  onAddArticleToBasket,
+  onUpdateArticleQuantity,
+}) {
   return (
     <div className="grid gap-3 grid-cols-3 p-3 rounded-1 bg-neutral-100">
       {products.map((product, index) => {
@@ -13,6 +19,8 @@ export function Gallery({ products, basketCounter, setBasketCounter }) {
             cardId={`card-${index}`}
             basketCounter={basketCounter}
             setBasketCounter={setBasketCounter}
+            onAddArticleToBasket={onAddArticleToBasket}
+            onUpdateArticleQuantity={onUpdateArticleQuantity}
           />
         );
       })}

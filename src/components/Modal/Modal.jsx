@@ -7,6 +7,8 @@ export function Modal({
   setModalIsDisplayed,
   basketCounter,
   setBasketCounter,
+  onAddArticleToBasket,
+  onUpdateArticleQuantity,
 }) {
   function calculateTotalPrice() {
     return (quantity * product.price).toFixed(2);
@@ -16,9 +18,13 @@ export function Modal({
     if (!articleInBasket && quantity > 0) {
       setBasketCounter(basketCounter + 1);
       setArticleInBasket(true);
+
+      onAddArticleToBasket(product, quantity);
     } else if (articleInBasket && quantity === 0) {
       setBasketCounter(basketCounter - 1);
       setArticleInBasket(false);
+
+      onAddArticleToBasket(product, quantity);
     }
 
     setModalIsDisplayed(!modalIsDisplayed);
