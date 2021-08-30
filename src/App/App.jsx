@@ -29,7 +29,6 @@ export function App(props) {
   const [activeCategory, setActiveCategory] = useState("fruits");
   const [isFilteringProducts, setIsFilteringProducts] = useState(false);
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const [basketCounter, setBasketCounter] = useState(0);
 
   const filterProducts = (searchInputValue) => {
     const filtered = PRODUCTS_LIST.filter((product) =>
@@ -43,7 +42,6 @@ export function App(props) {
       <Header
         filterProducts={filterProducts}
         setIsFilteringProducts={setIsFilteringProducts}
-        basketCounter={basketCounter}
       />
 
       <Switch>

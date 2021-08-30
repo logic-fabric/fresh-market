@@ -1,13 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import "./Header.css";
 
-export function Header({
-  filterProducts,
-  setIsFilteringProducts,
-  basketCounter,
-}) {
+export function Header({ filterProducts, setIsFilteringProducts }) {
+  const basketCounter = useSelector((state) => state.articles.length);
+
   return (
     <header className="bg-gradient-to-r from-primary-600 to-primary-300 ">
       <div className="content-wrapper flex justify-between items-center px-4 py-3">
