@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import { Basket } from "../pages/Basket/Basket";
@@ -25,7 +25,7 @@ for (let category of Object.keys(PRODUCTS)) {
 const PRODUCTS_LIST = productsCollections.flat();
 
 // App component:
-export function App(props) {
+export function App({ articles, saveBasket }) {
   const [activeCategory, setActiveCategory] = useState("fruits");
   const [isFilteringProducts, setIsFilteringProducts] = useState(false);
   const [filteredProducts, setFilteredProducts] = useState([]);
@@ -36,6 +36,12 @@ export function App(props) {
     );
     setFilteredProducts(filtered);
   };
+
+  useEffect(() => {
+    console.log("articles =", articles);
+
+    saveBasket(articles);
+  }, [saveBasket, articles]);
 
   return (
     <Router>

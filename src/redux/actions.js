@@ -6,6 +6,7 @@ export const ACTIONS = {
   ADD_ARTICLE_TO_BASKET: "ADD_ARTICLE_TO_BASKET",
   UPDATE_ARTICLE_QUANTITY: "UPDATE_ARTICLE_QUANTITY",
   REMOVE_ARTICLE_FROM_BASKET: "REMOVE_ARTICLE_FROM_BASKET",
+  SAVE_BASKET: "SAVE_BASKET",
 };
 
 /* ================
@@ -39,5 +40,12 @@ export function removeArticleFromBasket(id) {
   return {
     type: ACTIONS.REMOVE_ARTICLE_FROM_BASKET,
     payload: { id: id },
+  };
+}
+
+export function saveBasket(articles) {
+  return {
+    type: ACTIONS.SAVE_BASKET,
+    payload: { articles: articles },
   };
 }

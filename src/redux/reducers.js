@@ -1,14 +1,26 @@
 import { ACTIONS } from "./actions.js";
 
-const initialState = {
-  articles: [],
-};
-
 function updateArticle(article, updatedQuantity) {
   return Object.assign({}, article, {
     quantity: updatedQuantity,
   });
 }
+
+function saveToLocalStorage(articles) {
+  localStorage.setItem("articlesInBasket", JSON.stringify(articles));
+}
+
+function loadFromLocalStorage() {
+  const articlesInLocalStorage = JSON.parse(
+    localStorage.getItem("articlesInBasket")
+  );
+
+  return articlesInLocalStorage ? articlesInLocalStorage : [];
+}
+
+const initialState = {
+  articles: loadFromLocalStorage(),
+};
 
 export function basketReducer(state = initialState, action) {
   let newState;
@@ -27,7 +39,7 @@ export function basketReducer(state = initialState, action) {
           ? updateArticle(article, action.payload.updatedQuantity)
           : article
       );
-      
+
       newState = Object.assign({}, state, { articles: updatedArticles });
 
       return newState;
@@ -40,6 +52,11 @@ export function basketReducer(state = initialState, action) {
       newState = Object.assign({}, state, { articles: remainingArticles });
 
       return newState;
+
+    case ACTIONS.SAVE_BASKET:
+      saveToLocalStorage(action.payload.articles);
+
+      return state;
 
     default:
       return state;

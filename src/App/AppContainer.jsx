@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 
+import { saveBasket } from "../redux/actions";
 import { App } from "./App";
 
 const mapStateToProps = (state) => {
@@ -7,7 +8,9 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return {};
+  return {
+    saveBasket: (articles) => dispatch(saveBasket(articles)),
+  };
 };
 
 export const AppContainer = connect(mapStateToProps, mapDispatchToProps)(App);
