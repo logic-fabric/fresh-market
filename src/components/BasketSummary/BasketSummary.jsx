@@ -18,7 +18,7 @@ export function BasketSummary({ articles }) {
   const total = calculateTotal();
 
   return (
-    <div className="basket-summary-container">
+    <div className="basket-summary-container text-primary-900">
       <ul>
         <li className="flex justify-between">
           <span className="font-bold">articles</span>
