@@ -1,8 +1,6 @@
 import { SecondaryNav } from "../../components/SecondaryNav/SecondaryNav";
 import { Gallery } from "../../components/Gallery/Gallery";
 
-import "./Home.css";
-
 export function Home({
   products,
   categories,

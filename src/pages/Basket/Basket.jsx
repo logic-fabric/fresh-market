@@ -3,8 +3,6 @@ import { useSelector } from "react-redux";
 import { BasketContent } from "../../components/BasketContent/BasketContent";
 import { BasketSummary } from "../../components/BasketSummary/BasketSummary";
 
-import "./Basket.css";
-
 export function Basket() {
   const articles = useSelector((state) => state.articles);
 
