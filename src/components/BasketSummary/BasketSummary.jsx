@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 
+import "./BasketSummary.css";
+
 export function BasketSummary({ articles }) {
   const calculateSubTotal = () => {
     return articles.reduce(
@@ -32,8 +34,8 @@ export function BasketSummary({ articles }) {
           <span className="underline">j'ai un code promo</span>&nbsp;!
         </li>
 
-        <li className="flex justify-between my-3 text-xl">
-          <span className="font-bold">total</span>
+        <li className="flex justify-between my-3 text-xl font-bold">
+          <span>total</span>
           <span>{total.toFixed(2).replace(".", ",")}&nbsp;€</span>
         </li>
       </ul>
