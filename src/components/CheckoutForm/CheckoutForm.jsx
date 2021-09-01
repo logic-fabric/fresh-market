@@ -1,9 +1,11 @@
 export function CheckoutForm() {
+  const isFormValid = false;
+  
   return (
     <form className="text-primary-900">
       <fieldset className="flex flex-wrap mb-2">
         <div className="flex flex-col w-1/2 px-1 pt-sm pb-1">
-          <label className="px-1" for="first-name">
+          <label className="px-1" htmlFor="first-name">
             prénom
           </label>
           <input
@@ -16,7 +18,7 @@ export function CheckoutForm() {
         </div>
 
         <div className="flex flex-col w-1/2 px-1 pt-sm pb-1">
-          <label className="px-1" for="last-name">
+          <label className="px-1" htmlFor="last-name">
             nom
           </label>
           <input
@@ -29,7 +31,7 @@ export function CheckoutForm() {
         </div>
 
         <div className="flex flex-col w-full px-1 pt-sm pb-1">
-          <label className="px-1" for="email">
+          <label className="px-1" htmlFor="email">
             e-mail
           </label>
           <input
@@ -44,7 +46,7 @@ export function CheckoutForm() {
 
       <fieldset className="flex flex-wrap mb-3">
         <div className="flex flex-col w-full px-1 pt-sm pb-1">
-          <label className="px-1" for="address">
+          <label className="px-1" htmlFor="address">
             adresse
           </label>
           <input
@@ -52,12 +54,12 @@ export function CheckoutForm() {
             id="address"
             type="text"
             name="address"
-            placeholder="votre adresse de livraison"
+            placeholder="l'adresse de livraison de votre commande"
           />
         </div>
 
         <div className="flex flex-col w-1/4 px-1 pt-sm pb-1">
-          <label className="px-1" for="zip-code">
+          <label className="px-1" htmlFor="zip-code">
             code postal
           </label>
           <input
@@ -70,7 +72,7 @@ export function CheckoutForm() {
         </div>
 
         <div className="flex flex-col w-3/4 px-1 pt-sm pb-1">
-          <label className="px-1" for="city">
+          <label className="px-1" htmlFor="city">
             ville
           </label>
           <input
@@ -83,7 +85,13 @@ export function CheckoutForm() {
         </div>
       </fieldset>
 
-      <button className="block m-auto px-5 py-1 my-2 rounded-3 text-white text-center text-lg font-medium bg-gradient-to-r from-tonic-700 to-tonic-600 transition-all duration-300 hover:shadow-lg hover:opacity-90 hover:transform hover:-translate-y-px">
+      <button
+        className={
+          isFormValid
+            ? "block m-auto px-5 py-1 my-2 rounded-3 text-white text-center text-lg font-medium bg-gradient-to-r from-tonic-700 to-tonic-600 transition-all duration-300 hover:shadow-lg hover:opacity-90 hover:transform hover:-translate-y-px"
+            : "block m-auto px-5 py-1 my-2 rounded-3 text-white text-center text-lg font-medium bg-neutral-400 cursor-default"
+        }
+      >
         confirmer
       </button>
     </form>

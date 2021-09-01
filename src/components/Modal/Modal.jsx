@@ -45,7 +45,7 @@ export function Modal({ product, modalIsDisplayed, setModalIsDisplayed }) {
       <div className="modal__dialog absolute rounded-sm bg-white">
         <div
           className="modal__content z-50 w-full px-4 py-3"
-          onClick={(event) => event.stopPropagation()}
+          onClick={(e) => e.stopPropagation()}
         >
           <header className="modal__header flex justify-between">
             <h3 className="font-serif text-primary-600 text-5xl">

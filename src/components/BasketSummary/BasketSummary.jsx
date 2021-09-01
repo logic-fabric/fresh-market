@@ -44,7 +44,7 @@ export function BasketSummary({ articles }) {
         className={
           total > 0
             ? "block w-full m-auto px-3 py-1 my-2 rounded-3 text-white text-center text-lg font-medium bg-gradient-to-r from-tonic-700 to-tonic-600 transition-all duration-300 hover:shadow-lg hover:opacity-90 hover:transform hover:-translate-y-px"
-            : "block w-full m-auto px-3 py-1 my-2 rounded-3 text-white text-center text-lg font-medium bg-neutral-400"
+            : "block w-full m-auto px-3 py-1 my-2 rounded-3 text-white text-center text-lg font-medium bg-neutral-400 cursor-default"
         }
         to={total > 0 ? "/passer-commande" : "mon-panier"}
       >

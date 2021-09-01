@@ -29,7 +29,7 @@ export function Card({ product }) {
         <button
           className="absolute bottom-3 right-3 px-3 py-sm rounded-3 text-white text-lg font-medium bg-gradient-to-r from-tonic-700 to-tonic-600 transition-all duration-300 hover:shadow-lg hover:opacity-90 hover:transform hover:-translate-y-px"
           type="button"
-          onClick={(event) => {
+          onClick={() => {
             setModalIsDisplayed(!modalIsDisplayed);
           }}
         >
