@@ -1,20 +1,49 @@
+import { useState } from "react";
+
+import "./CheckoutForm.css";
+
+const NAME_ERROR_MESSAGE =
+  "deux caractères minimum, sans chiffre ni caractère spécial";
+
 export function CheckoutForm() {
-  const isFormValid = false;
-  
+  const validateName = (name) => {
+    const nameRegex = /^[a-zA-Z]+[a-zA-Z -]*[a-zA-Z]$/;
+
+    return nameRegex.test(name) && name.length > 1;
+  };
+
+  const [isFormValid, setIsFormValid] = useState(false);
+
+  const [isFirstNameValid, setIsFirstNameValid] = useState(true);
+
   return (
     <form className="text-primary-900">
       <fieldset className="flex flex-wrap mb-2">
-        <div className="flex flex-col w-1/2 px-1 pt-sm pb-1">
+        <div className="flex flex-col w-1/2 px-1 py-sm">
           <label className="px-1" htmlFor="first-name">
             prénom
           </label>
           <input
-            className="px-1 py-sm rounded-sm text-lg outline-none border-xs border-primary-100 focus:border-primary-500"
+            className={`px-1 py-sm rounded-sm text-lg outline-none border-xs border-${
+              isFirstNameValid ? "primary-100" : "danger-300"
+            } focus:border-${
+              isFirstNameValid ? "primary-500" : "danger-300"
+            } transition-all duration-200`}
             id="first-name"
             type="text"
             name="first-name"
             placeholder="votre prénom"
+            onChange={() => {
+              const firstNameInput = document.getElementById("first-name");
+              setIsFirstNameValid(validateName(firstNameInput.value));
+            }}
           />
+          <p
+            className="checkout-form__error px-1 text-danger-700 text-sm"
+            id="first-name-error"
+          >
+            {isFirstNameValid ? "" : NAME_ERROR_MESSAGE}
+          </p>
         </div>
 
         <div className="flex flex-col w-1/2 px-1 pt-sm pb-1">
