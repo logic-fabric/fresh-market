@@ -1,0 +1,16 @@
+.basket-counter--home {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 1px solid white;
+  border-radius: 50%;
+
+  color: white;
+  font-size: 0.7rem;
+}
