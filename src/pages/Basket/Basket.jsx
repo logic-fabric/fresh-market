@@ -9,7 +9,7 @@ export function Basket() {
 
   return (
     <main className="content-wrapper flex">
-      <section className="w-3/4 ml-4 mr-3 my-3 px-3 py-2 rounded-1 bg-neutral-100">
+      <section className="w-3/4 my-3 ml-3 px-3 py-2 rounded-1 bg-neutral-100">
         <h1 className="mb-3 font-serif text-secondary-700 text-center text-3xl">
           mon panier
         </h1>
@@ -17,7 +17,7 @@ export function Basket() {
         <BasketContent articles={articles} />
       </section>
 
-      <div className="w-1/4 ml-3 mr-4 my-3">
+      <div className="w-1/4 mr-3 pl-4 py-3">
         <Link
           className="block relative m-auto px-3 py-1 mt-3 mb-4 rounded-3 text-white text-center text-lg font-medium bg-gradient-to-r from-tonic-700 to-tonic-600 transition-all duration-300 hover:shadow-lg hover:opacity-90 hover:transform hover:-translate-y-px"
           to="/"

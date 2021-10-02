@@ -20,14 +20,14 @@ export function Home({
 
   return (
     <main className="content-wrapper flex">
-      <div className="w-3/4 my-3">
+      <div className="w-3/4 my-3 ml-3">
         <Gallery
           products={isFilteringProducts ? filteredProducts : productsToDisplay}
           activeCategory={activeCategory}
         />
       </div>
 
-      <aside className="w-1/4 px-4 py-3">
+      <aside className="w-1/4 mr-3 pl-4 py-3">
         <Link
           className={
             basketCounter > 0
