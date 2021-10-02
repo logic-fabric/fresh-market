@@ -1,10 +1,10 @@
-.active-category::after {
+.active-category::before {
   position: absolute;
-  left: 100%;
+  right: 100%;
   display: block;
 
   border: 0 solid transparent;
-  border-color: transparent transparent transparent #0f766e;
+  border-color: transparent #134e4a transparent transparent;
   border-width: 1.2rem 0.75rem;
 
   content: " ";
